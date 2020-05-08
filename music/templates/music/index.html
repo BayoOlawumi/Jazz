@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ {%if all_albums %}
+ <H2>Here are the Albums</H2>
+    <ul>
+        <!-- Whenever you want to write a python code in html, you use -->
+        <!--and { } where you want to put real value i.e variables-->
+        {% for album in all_albums %}
+        <li>
+            <a href="/music/{{album.id}}/">{{ album.pub_name }}</a>
+        </li>
+        {%endfor%}
+
+    </ul>
+ {%else%}
+    <h2>No album in the database</h2>
+ {% endif %}
+</body>
+</html>

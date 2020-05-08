@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <h3>Here are the songs</h3>
+    <ul>
+
+        {% with num=0 %}
+        {% for song in albumSongs%}
+        <li>
+            {{song}}
+        </li>
+        {% endfor %}
+        {% endwith %}
+    </ul>
+    <a href="/music">Go back</a>
+</body>
+</html>
