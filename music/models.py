@@ -10,6 +10,8 @@ class Song(models.Model):
 
     artist=models.CharField(max_length=100)
     dj=models.CharField(max_length=100)
+    lyrics=models.TextField(blank=True)
+    is_favourite=models.BooleanField(default=False)
     album=models.ForeignKey(Album,on_delete=models.CASCADE)
     def __str__(self):
-        return self.artist + self.album.pub_name
+        return "Artist: " + self.artist + " Producer: "+ self.album.pub_name

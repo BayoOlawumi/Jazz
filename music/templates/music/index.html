@@ -1,10 +1,26 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<!--Load Static Files-->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!--Logo-->
+        <div class="navbar-header">
+            <a clas="nav-brand" href="{% url 'music:index' %}">
+                Viberr
+            </a>
+        </div>
+    </div>
+</nav>
  {%if all_albums %}
  <H2>Here are the Albums</H2>
     <ul>
@@ -12,7 +28,8 @@
         <!--and { } where you want to put real value i.e variables-->
         {% for album in all_albums %}
         <li>
-            <a href="/music/{{album.id}}/">{{ album.pub_name }}</a>
+            <!--*<a href="/music/{{album.id}}/">{{ album.pub_name }}</a>-->
+            <a href="{% url 'music:detail' album.id %}">{{ album.pub_name }}</a>
         </li>
         {%endfor%}
 
